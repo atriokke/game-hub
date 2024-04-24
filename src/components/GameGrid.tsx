@@ -1,28 +1,9 @@
-import React, { useEffect, useState } from "react";
-import apiClient from "../services/api-client";
 import { Text } from "@chakra-ui/react";
-
-interface Game {
-  id: number;
-  name: string;
-}
-
-//this is is coming from the definition in the API
-interface FetchGamesResponse {
-  count: number;
-  results: Game[];
-}
+import useGames from "../hooks/useGames";
 
 const GameGrid = () => {
-  const [games, setGames] = useState<Game[]>([]);
-  const [error, setError] = useState("");
+  const { games, error } = useGames(); //putting thhe logic of games and fetching it from API makes it so that this component has a separation of concern which is to primarily be responsible for only producing the markup
 
-  useEffect(() => {
-    apiClient
-      .get<FetchGamesResponse>("/xgames")
-      .then((res) => setGames(res.data.results))
-      .catch((err) => setError(err.message));
-  });
   return (
     <>
       {error && <Text>{error}</Text>}

@@ -5,7 +5,7 @@ import GameCardSkeleton from "./GameCardSkeleton";
 import GameCardContainer from "./GameCardContainer";
 
 const GameGrid = () => {
-  const { games, error, isLoading } = useGames(); //putting thhe logic of games and fetching it from API makes it so that this component has a separation of concern which is to primarily be responsible for only producing the markup
+  const { data, error, isLoading } = useGames(); //putting thhe logic of games and fetching it from API makes it so that this component has a separation of concern which is to primarily be responsible for only producing the markup
 
   const skeletons = [1, 2, 3, 4, 5, 6];
 
@@ -23,7 +23,7 @@ const GameGrid = () => {
               <GameCardSkeleton key={skeleton} />
             </GameCardContainer>
           ))}
-        {games.map((game) => (
+        {data.map((game) => (
           <GameCardContainer>
             <GameCard key={game.id} game={game} />
           </GameCardContainer>

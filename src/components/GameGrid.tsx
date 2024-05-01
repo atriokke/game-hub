@@ -4,14 +4,14 @@ import GameCard from "./GameCard";
 import GameCardSkeleton from "./GameCardSkeleton";
 import GameCardContainer from "./GameCardContainer";
 import { Genre } from "../hooks/useGenres";
+import { GameQuery } from "../App";
 
 interface Props {
-  selectedGenre: Genre | null;
-  selectedPlatform: Platform | null;
+  gameQuery: GameQuery;
 }
 
-const GameGrid = ({ selectedGenre, selectedPlatform }: Props) => {
-  const { data, error, isLoading } = useGames(selectedGenre, selectedPlatform); //putting thhe logic of games and fetching it from API makes it so that this component has a separation of concern which is to primarily be responsible for only producing the markup
+const GameGrid = ({ gameQuery }: Props) => {
+  const { data, error, isLoading } = useGames(gameQuery); //putting thhe logic of games and fetching it from API makes it so that this component has a separation of concern which is to primarily be responsible for only producing the markup
 
   const skeletons = [1, 2, 3, 4, 5, 6];
 

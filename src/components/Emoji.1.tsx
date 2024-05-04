@@ -2,6 +2,7 @@ import bullsEye from "../assets/bulls-eye.webp";
 import thumbsUp from "../assets/thumbs-up.webp";
 import meh from "../assets/meh.webp";
 import { Props } from "./Emoji";
+import { Image } from "@chakra-ui/react";
 
 export const Emoji = ({ rating }: Props) => {
   if (rating < 3) return null;

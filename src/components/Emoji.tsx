@@ -3,7 +3,7 @@ import thumbsUp from "../assets/thumbs-up.webp";
 import meh from "../assets/meh.webp";
 import { Image, ImageProps } from "@chakra-ui/react";
 
-interface Props {
+export interface Props {
   rating: number;
 }
 
